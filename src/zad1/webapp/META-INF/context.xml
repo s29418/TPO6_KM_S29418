@@ -3,7 +3,9 @@
               auth="Container"
               type="javax.sql.DataSource"
               description="Baza danych ksiazek"
-              driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
-              url="jdbc:derby:C:/db/ksidb"
+              driverClassName="org.apache.derby.jdbc.ClientDriver"
+              url="jdbc:derby://localhost/ksidb"
+              username="APP"
+              password="APP"
               maxActive="20" />
 </Context>

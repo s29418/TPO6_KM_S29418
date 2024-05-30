@@ -1,4 +1,4 @@
-<project name="BookWebApp" default="zad1" basedir=".">
+<project name="BookWebApp" default="deploy" basedir=".">
 
     <target name="init">
         <mkdir dir="build"/>
@@ -30,7 +30,8 @@
         </war>
     </target>
 
-    <target name="zad1" depends="war"/>
+    <target name="deploy" depends="war">
+    </target>
 
     <target name="clean">
         <delete dir="build"/>

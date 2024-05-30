@@ -1,9 +1,0 @@
-<Context docBase="TPO6_KM_S29418" path="/BookWebApp">
-    <Resource name="jdbc/ksidb"
-              auth="Container"
-              type="javax.sql.DataSource"
-              description="Baza danych ksiazek"
-              driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
-              url="jdbc:derby:C:/db/ksidb"
-              maxActive="20" />
-</Context>

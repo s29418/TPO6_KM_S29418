@@ -1,14 +1,14 @@
 <project name="BookWebApp" default="zad1" basedir=".">
 
-    <!-- Initialize build directories -->
     <target name="init">
-        <mkdir dir="build/classes"/>
+        <mkdir dir="build"/>
+        <mkdir dir="build/WEB-INF"/>
+        <mkdir dir="build/WEB-INF/classes"/>
         <mkdir dir="dist"/>
     </target>
 
-    <!-- Compile the source code -->
     <target name="compile" depends="init">
-        <javac srcdir="src/zad1/java" destdir="build/classes" includeantruntime="false">
+        <javac srcdir="src/zad1/java" destdir="build/WEB-INF/classes" includeantruntime="false">
             <classpath>
                 <fileset dir="src/zad1/webapp/WEB-INF/lib">
                     <include name="*.jar"/>
@@ -17,25 +17,21 @@
         </javac>
     </target>
 
-    <!-- Copy web resources -->
     <target name="copy-resources" depends="compile">
-        <copy todir="build/classes">
+        <copy todir="build">
             <fileset dir="src/zad1/webapp"/>
         </copy>
     </target>
 
-    <!-- Package the WAR file -->
     <target name="war" depends="copy-resources">
         <war destfile="dist/BookWebApp.war" webxml="src/zad1/webapp/WEB-INF/web.xml">
-            <fileset dir="build/classes"/>
+            <fileset dir="build"/>
             <lib dir="src/zad1/webapp/WEB-INF/lib"/>
         </war>
     </target>
 
-    <!-- Default target -->
     <target name="zad1" depends="war"/>
 
-    <!-- Clean build directories -->
     <target name="clean">
         <delete dir="build"/>
         <delete dir="dist"/>
